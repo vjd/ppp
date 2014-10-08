@@ -11,16 +11,15 @@ parser.add_argument("-p", "--printout", type=str, help="print result on console"
 
 args = parser.parse_args()
 
-
 def lex(infile, outfile):
     '''
     This program performs a simple lexicographic sort
     :param infile: input text based file
     :param outfile: output file with sorted text
-    :return: outfile and optional print on the console
+    :return: outfile and option print on the console
     '''
     clean_lex_sort = []
-    to_sort = args.infile
+    to_sort = infile
     lines = to_sort.readlines()
     to_sort.close()
     if args.insensitive:  # add check to make sure its a string

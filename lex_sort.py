@@ -29,7 +29,7 @@ def lex(infile, outfile):
     for i in range(len(lex_sort)):
         clean_lex_sort.append(lex_sort[i].strip('\n'))
     #clean_lex_sort = '/n'.join(clean_lex_sort)
-    out_sort = args.outfile
+    out_sort = outfile
     out_sort.write(str(clean_lex_sort))
     out_sort.close()
     print(lines)

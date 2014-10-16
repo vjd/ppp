@@ -42,30 +42,22 @@ def lex(args):
     else:
         lex_sort = sorted(lines)
 
-    clean_lex_sort = []
-    clean_lex_sort =[lex_sort[i] for i in range(len(lex_sort))]
-
     ## Louie: Use a list comprehension for this. Read about it here: https://docs.python.org/3/tutorial/datastructures.html. Section 5.1.3
-
-    #clean resultant output to be printed in the outfile or console
-    out_sort = args.outfile
-    out_sort.write( "\n".join(str(i) for i in clean_lex_sort))
-    out_sort.close()
-
     #Check for value of --nline. If no value given default it to max length of input/output sort
     if args.nline == None:
-        nline = len(clean_lex_sort)
+        nline = len(lex_sort)
     else:
         nline=args.nline
 
-    #print on console after checking for value of nline
+    #clean resultant output to be printed in the outfile or console
+    out_sort = args.outfile
     for i in range(nline):
+        output=lex_sort[i]
+        out_sort.write(output)
+        #check for console printing in the same loop
         if args.printout == 'yes':
-            print(clean_lex_sort[i])
-
-# TODO: Learn how to format the list in outfile to print on a newline #DOne
-# TODO: To print number of lines requested by user using --nline #Done
-# TODO: Type check for options with informative error messages in case of user entry error
+            print(lex_sort[i])
+    out_sort.close()
 
 if __name__ == "__main__":
     args=lex_parser()

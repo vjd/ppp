@@ -59,6 +59,16 @@ def lex(args):
             print(lex_sort[i])
     out_sort.close()
 
+    ## A more concise way to write the above
+    #out_sort = args.outfile
+    #output_lines = lex_sort[:nline]
+    #for line in output_lines:
+    #    out_sort.write(line)
+    #    if args.printout == 'yes':
+    #        print(line)
+    #out_sort.close()
+
+
 if __name__ == "__main__":
     args=lex_parser()
     lex(args)
